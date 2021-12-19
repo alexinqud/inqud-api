@@ -1,0 +1,256 @@
+openapi: 3.0.0
+info:
+  title: Inqud API
+  version: 0.0.1
+servers:
+  - url: https://api.inqud.com
+tags:
+  - name: Exchange
+  - name: Payment Methods
+  - name: Payments
+  - name: Transfer
+  - name: User Settings
+  - name: Wallets
+paths:
+  /v1/user/exchange:
+    post:
+      tags:
+        - Exchange
+      summary: Exchange
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                amount: 0.002
+                symbolPair: BTCUAH
+                side: BUY
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+              example: ORD-18951c50-169e-42b9-9568-14ff2285c2c6
+  /v1/user/exchange/limits:
+    get:
+      tags:
+        - Exchange
+      summary: Get Exchange limits
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/user/exchange/rates:
+    get:
+      tags:
+        - Exchange
+      summary: Get Exchange rates
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/user/exchange/rates/{symbolPair}:
+    get:
+      tags:
+        - Exchange
+      summary: Get Exchange rate
+      parameters:
+        - name: symbolPair
+          in: path
+          schema:
+            type: string
+          required: true
+          example: BTCUSDT
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/user/methods:
+    get:
+      tags:
+        - Payment methods
+      summary: Get payment methods
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/user/payments:
+    get:
+      tags:
+        - Payments
+      summary: Get payments
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/user/payments/{id}:
+    get:
+      tags:
+        - Payments
+      summary: Get payment
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Payment ID
+          example: paymentId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/user/payments/search:
+    get:
+      tags:
+        - Payments
+      summary: Search payments
+      parameters:
+        - name: orderId
+          in: query
+          schema:
+            type: string
+          example: ':orderId'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/user/payments/payin:
+    post:
+      tags:
+        - Payments
+      summary: PayIn
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                amount: 100
+                currency: UAH
+                method: CC_VISAMC
+                comment: optional comment
+                clientOrderId: optional
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/user/payments/payout:
+    post:
+      tags:
+        - Payments
+      summary: Payout
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                amount: 1
+                currency: BTC
+                method: CRYPTOCOIN
+                cryptoAddress: '0xad4ae7bf3142a9d8102cf501e42cef1d269eabbd'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/user/transfer:
+    post:
+      tags:
+        - Transfer
+      summary: Transfer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                target: OWN-4a6280a8-372f-488b-89bf-2e54c6a98bb1
+                amount: 10
+                currency: USDT
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/user/transfer/limits:
+    get:
+      tags:
+        - Transfer
+      summary: Get transfer limits
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/user/settings:
+    get:
+      tags:
+        - User Settings
+      summary: Get user settings
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - User Settings
+      summary: Set user settings
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: '{{userSettingsName}}'
+                value: '{{userSettingsValue}}'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/user/settings/{name}:
+    delete:
+      tags:
+        - User Settings
+      summary: Delete user settings
+      parameters:
+        - name: name
+          in: path
+          schema:
+            type: string
+          required: true
+          example: usersettingsName
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v1/user/wallet/balances:
+    get:
+      tags:
+        - Wallets
+      summary: Get wallet balances
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                - currency: BTC
+                  balance: 105.82306278
