@@ -41,7 +41,7 @@ headers['X-Token-API-Id'] = id
 headers['X-Token-API-Secret'] = secret
 
 
-url = 'https://api.pocketbank.online/v1/user/wallet/balances'
+url = 'https://api.inqud.com/v1/user/wallet/balances'
 
 http_response = requests.get(url=url, headers=headers)
 
@@ -79,7 +79,7 @@ headers = {'X-Token-API-Id': token_id,
          'X-HMAC-SHA256-Signature': signature,
          'X-Salt': salt}
 
-url = 'https://api.pocketbank.online/v1/user/wallet/balances'
+url = 'https://api.inqud.com/v1/user/wallet/balances'
 
 http_response = requests.get(url=url, headers=headers)
 
