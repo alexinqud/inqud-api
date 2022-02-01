@@ -29,3 +29,18 @@ CRYPTOCOIN
 CC_VISAMC
 QIWI
 ```
+#### Bank codes IDR
+```
+CIMB - CIMB Bank
+BNI - BNI Bank
+BCA - BCA Bank
+PERMATA - PERMATA Bank
+```
+#### Channel codes IDR
+```
+BT - Permata Bank Virtual Account
+I1 - BNI Virtual Account
+M1 - Mandiri Virtual Account
+RI - Bank Rakyat Indonesia
+QRIS - QRIS
+```
