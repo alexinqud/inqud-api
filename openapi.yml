@@ -141,6 +141,7 @@ paths:
                 method: CC_VISAMC
                 comment: optional comment
                 clientOrderId: optional
+                channelCode: BT (required for IDR currency)
       responses:
         '200':
           description: Successful response
@@ -161,6 +162,8 @@ paths:
                 currency: BTC
                 method: CRYPTOCOIN
                 cryptoAddress: '0xad4ae7bf3142a9d8102cf501e42cef1d269eabbd'
+                bankAccount: required for IDR currency
+                bankCode: CIMB (required for IDR currency)
       responses:
         '200':
           description: Successful response
