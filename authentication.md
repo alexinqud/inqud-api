@@ -7,7 +7,7 @@ based authentication:
 **Simple approach**:
 ```
 X-Token-API-Id - Identifier of the token (started with TKN- prefix)
-X-Token-Secret - Token secret
+X-Token-API-Secret - Token secret
 ```
 
 **HmacSHA256**:
