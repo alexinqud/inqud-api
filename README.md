@@ -1,4 +1,7 @@
+### [!!!] This documentation is no longer maintained. For the latest Inqud documentation please refer to https://docs.inqud.com/
+
 # General
+
 
 - The base endpoint is: **https://api.inqud.com**
 - All endpoints return either a JSON object or array.
